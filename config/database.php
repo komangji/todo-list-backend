@@ -1,20 +1,13 @@
 <?php
-// Konfigurasi host database 
+//Konfigurasi Database
 $host = "localhost";
-
-// Username database 
 $user = "root";
-
-// Password database 
 $pass = "";
+$db   = "todolist_db";
 
-// Nama database yang digunakan
-$db   = "toDoList_db";
-
-// Membuat koneksi ke database MySQL
+//Membuat Koneksi Database
 $conn = mysqli_connect($host, $user, $pass, $db);
 
-// Mengecek apakah koneksi berhasil atau tidak
 if (!$conn) {
-    die("Koneksi database gagal");
+    die("Koneksi database gagal: " . mysqli_connect_error());
 }
