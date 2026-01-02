@@ -46,4 +46,22 @@ class Todo {
         $query = "DELETE FROM todos WHERE id = $id";
         return mysqli_query($this->conn, $query);
     }
+
+    // Method untuk menyimpan data todo baru ke database
+    public function insert($data) {
+
+    // Mengambil data dari form
+    $title = $data['title'];
+    $description = $data['description'];
+
+    // Status default todo adalah 'pending'
+    $status = 'pending';
+
+    // Query untuk menyimpan data todo baru
+    $query = "INSERT INTO todos (title, description, status)
+              VALUES ('$title', '$description', '$status')";
+
+    // Eksekusi query
+    return mysqli_query($this->conn, $query);
+}
 }
