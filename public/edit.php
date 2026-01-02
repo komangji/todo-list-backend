@@ -3,7 +3,7 @@
 // Memanggil koneksi database
 require_once '../config/database.php';
 // Memanggil model Todo
-include "../models/todoModel.php";
+require_once '../models/todoModel.php';
 
 // Validasi parameter ID
 if (!isset($_GET['id'])) {
