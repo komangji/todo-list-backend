@@ -1,11 +1,16 @@
 <?php
+// Memanggil file koneksi database
 require_once '../config/database.php';
-require_once '../controllers/todoController.php';
 
-$controller = new TodoController($conn);
-$todos = $controller->index();
+// Memanggil file model Todo
+require_once '../models/todoModel.php';
+
+// Membuat objek Todo dan mengirimkan koneksi database
+$todo = new Todo($conn);
+
+// Memanggil method getAll() untuk mengambil seluruh data todo
+$result = $todo->getAll();
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,32 +19,49 @@ $todos = $controller->index();
 </head>
 <body>
 
+<!-- Judul halaman -->
 <h2>Daftar Todo</h2>
 
-<a href="create.php">+ Tambah Todo</a>
+<!-- Tabel untuk menampilkan data todo -->
+<table border="1" cellpadding="8">
 
-<table>
+    <!-- Header tabel -->
     <tr>
-        <th>No</th>
+        <th>Selesai</th>
         <th>Judul</th>
-        <th>Deskripsi</th>
         <th>Status</th>
         <th>Aksi</th>
     </tr>
 
-    <?php $no = 1; while ($row = mysqli_fetch_assoc($todos)) : ?>
+    <?php 
+    // Melakukan perulangan untuk menampilkan setiap data todo
+    while ($row = mysqli_fetch_assoc($result)) : 
+    ?>
     <tr>
-        <td><?= $no++ ?></td>
-        <td><?= $row['title'] ?></td>
-        <td><?= $row['description'] ?></td>
-        <td><?= $row['status'] ?></td>
-        <td>
-            <a href="edit.php?id=<?= $row['id'] ?>">Edit</a> |
-            <a href="delete.php?id=<?= $row['id'] ?>" 
-               onclick="return confirm('Yakin hapus data?')">Hapus</a>
+
+        <!-- Kolom checklist untuk mengubah status todo -->
+        <td align="center">
+            <input type="checkbox"
+                   onchange="window.location='update_status.php?id=<?= $row['id']; ?>&status=<?= $row['status']=='done' ? 'pending' : 'done'; ?>'"
+                   <?= $row['status']=='done' ? 'checked' : ''; ?>>
         </td>
+
+        <!-- Menampilkan judul todo -->
+        <td><?= $row['title']; ?></td>
+
+        <!-- Menampilkan status todo -->
+        <td><?= $row['status']; ?></td>
+
+        <!-- Tombol aksi edit dan hapus -->
+        <td>
+            <a href="edit.php?id=<?= $row['id']; ?>">Edit</a> |
+            <a href="delete.php?id=<?= $row['id']; ?>" 
+               onclick="return confirm('Yakin hapus?')">Hapus</a>
+        </td>
+
     </tr>
     <?php endwhile; ?>
+
 </table>
 
 </body>
