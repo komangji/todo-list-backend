@@ -1,6 +1,6 @@
 <?php
 // Memanggil model Todo
-include "../models/Todo.php";
+include "../models/todoModel.php";
 
 // Validasi parameter ID
 if (!isset($_GET['id'])) {
