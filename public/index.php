@@ -11,7 +11,6 @@ $todos = $controller->index();
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
