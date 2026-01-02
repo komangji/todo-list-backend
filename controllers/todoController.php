@@ -1,37 +1,46 @@
 <?php
+// Memanggil file model Todo
 require_once '../models/todoModel.php';
 
+// Class TodoController berfungsi sebagai CONTROLLER
+// untuk menghubungkan model dengan tampilan (view)
 class TodoController {
+
+    // Properti untuk menyimpan object model
     private $model;
 
-    //membuat object model
-    public function __construct($db){
+    // Constructor menerima koneksi database
+    public function __construct($db) {
         $this->model = new Todo($db);
     }
 
-    //menampilkan semua data todo
-    public function index(){
+    // Menampilkan seluruh data todo
+    public function index() {
         return $this->model->getAll();
     }
 
-    //menyimpan data todo baru
-    public function store($data){
+    // Menyimpan data todo baru
+    public function store($data) {
         return $this->model->insert($data);
     }
 
-    //mengambil satu data todo berdasarkan ID
-    public function show($id){
+    // Mengambil satu data todo berdasarkan ID
+    public function show($id) {
         return $this->model->getById($id);
     }
 
-    //memperbarui data todo
-    public function update($id, $data){
+    // Memperbarui data todo
+    public function update($id, $data) {
         return $this->model->update($id, $data);
     }
 
-    //menghapus data todo
-    public function destroy($id)
-    {
+    // Memperbarui status todo (checklist)
+    public function updateStatus($id, $status) {
+        return $this->model->updateStatus($id, $status);
+    }
+
+    // Menghapus data todo
+    public function destroy($id) {
         return $this->model->delete($id);
     }
 }
