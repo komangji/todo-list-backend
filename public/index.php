@@ -14,9 +14,9 @@ $todos = $controller->index();
 </head>
 <body>
 
-<h2>Daftar Todo</h2>
+<h1>To-Do Lists</h1>
 
-<a href="create.php">+ Tambah Todo</a>
+<a href="create.php">Tambah Todo</a>
 
 <table>
     <tr>

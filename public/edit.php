@@ -55,6 +55,6 @@ if (isset($_POST['submit'])) {
 
     <button type="submit" name="submit">Simpan Perubahan</button>
 </form>
-
+        <a href="index.php">Kembali</a>
 </body>
 </html>
