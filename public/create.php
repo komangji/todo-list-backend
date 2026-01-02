@@ -1,12 +1,16 @@
 <?php
+// Memanggil koneksi database
 require_once '../config/database.php';
-require_once '../controllers/todoController.php';
 
-$controller = new TodoController($conn);
+// Memanggil model Todo
+require_once '../models/todoModel.php';
 
-// Proses simpan data
+// Membuat object Todo
+$todo = new Todo($conn);
+
+// Proses simpan data todo baru
 if (isset($_POST['submit'])) {
-    $controller->store($_POST);
+    $todo->insert($_POST);   // ← FIX DI SINI
     header("Location: index.php");
     exit;
 }
@@ -16,12 +20,12 @@ if (isset($_POST['submit'])) {
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Tambah Todo</title>
+    <title>Tambah To-Do</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
-<h2>Tambah Data Todo</h2>
+<h2>Tambah Data To-Do</h2>
 
 <form method="POST">
     <label>Judul</label>

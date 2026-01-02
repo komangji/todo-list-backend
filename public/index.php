@@ -47,9 +47,10 @@ $result = $todo->getAll();
 
         <!-- Kolom checklist untuk mengubah status todo -->
         <td align="center">
-            <input type="checkbox"
-            onchange="window.location='update_status.php?id=<?= $row['id']; ?>&status=<?= $row['status']=='done' ? 'pending' : 'done'; ?>'"
-            <?= $row['status']=='done' ? 'checked' : ''; ?>>
+        <input type="checkbox"
+            onchange="window.location='updateStatus.php?id=<?= $row['id']; ?>&status=<?= $row['status'] == 'done' ? 'pending' : 'done'; ?>'"
+            <?= $row['status'] == 'done' ? 'checked' : ''; ?>>
+
         </td>
 
         <!-- Menampilkan judul todo -->
@@ -64,8 +65,7 @@ $result = $todo->getAll();
         <!-- Tombol aksi edit dan hapus -->
         <td>
             <a href="edit.php?id=<?= $row['id']; ?>">Edit</a> |
-            <a href="delete.php?id=<?= $row['id']; ?>" 
-               onclick="return confirm('Yakin hapus?')">Hapus</a>
+            <a href="delete.php?id=<?= $row['id']; ?>"onclick="return confirm('Yakin hapus?')">Hapus</a>
         </td>
 
     </tr>

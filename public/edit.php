@@ -11,8 +11,6 @@ if (!isset($_GET['id'])) {
 }
 
 $id = $_GET['id'];
-
-// Membuat object Todo
 $todo = new Todo($conn);
 
 // Mengambil data todo berdasarkan ID
