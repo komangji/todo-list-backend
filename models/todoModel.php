@@ -24,9 +24,7 @@ class Todo {
         $title = $data['title'];
         $description = $data['description'];
 
-        $query = "INSERT INTO todos (title, description) 
-                  VALUES ('$title', '$description')";
-
+        $query = "INSERT INTO todos (title, description) VALUES ('$title', '$description')";
         return mysqli_query($this->conn, $query);
     }
 
@@ -36,11 +34,7 @@ class Todo {
         $description = $data['description'];
         $status = $data['status'];
 
-        $query = "UPDATE todos 
-                  SET title = '$title', 
-                      description = '$description', 
-                      status = '$status' 
-                  WHERE id = $id";
+        $query = "UPDATE todos SET title = '$title', description = '$description', status = '$status' WHERE id = $id";
 
         return mysqli_query($this->conn, $query);
     }
