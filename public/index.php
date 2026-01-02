@@ -66,7 +66,7 @@ $result = $todo->getAll();
         <!-- Tombol aksi edit dan hapus -->
         <td>
             <a href="edit.php?id=<?= $row['id']; ?>">Edit</a> |
-            <a href="delete.php?id=<?= $row['id']; ?>"onclick="return confirm('Yakin hapus?')">Hapus</a>
+            <a href="delete.php?id=<?= $row['id']; ?>"onclick="return confirm('Yakin hapus?')">Delete</a>
         </td>
 
     </tr>
