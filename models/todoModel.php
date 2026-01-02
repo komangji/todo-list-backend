@@ -51,15 +51,10 @@ class Todo {
         return mysqli_query($this->conn, $query);
     }
 
-    // Method khusus untuk memperbarui status todo (digunakan oleh checklist)
+    // Method khusus untuk mengubah status todo
     public function updateStatus($id, $status) {
         $query = "UPDATE todos SET status='$status' WHERE id=$id";
         return mysqli_query($this->conn, $query);
     }
 
-    // Method untuk menghapus data todo
-    public function delete($id) {
-        $query = "DELETE FROM todos WHERE id=$id";
-        return mysqli_query($this->conn, $query);
-    }
 }

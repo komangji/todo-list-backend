@@ -34,6 +34,7 @@ $result = $todo->getAll();
     <tr>
         <th>Selesai</th>
         <th>Judul</th>
+        <th>Deskripsi</th>
         <th>Status</th>
         <th>Aksi</th>
     </tr>
@@ -47,12 +48,15 @@ $result = $todo->getAll();
         <!-- Kolom checklist untuk mengubah status todo -->
         <td align="center">
             <input type="checkbox"
-                   onchange="window.location='update_status.php?id=<?= $row['id']; ?>&status=<?= $row['status']=='done' ? 'pending' : 'done'; ?>'"
-                   <?= $row['status']=='done' ? 'checked' : ''; ?>>
+            onchange="window.location='update_status.php?id=<?= $row['id']; ?>&status=<?= $row['status']=='done' ? 'pending' : 'done'; ?>'"
+            <?= $row['status']=='done' ? 'checked' : ''; ?>>
         </td>
 
         <!-- Menampilkan judul todo -->
         <td><?= $row['title']; ?></td>
+
+        <!-- Menampilkan deskripsi todo -->
+        <td><?= $row['description']; ?></td>
 
         <!-- Menampilkan status todo -->
         <td><?= $row['status']; ?></td>

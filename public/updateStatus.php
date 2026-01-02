@@ -1,25 +1,25 @@
 <?php
-// Memanggil file koneksi database
+// Memanggil koneksi database
 require_once '../config/database.php';
 
-// Memanggil controller Todo
-require_once '../controllers/todoController.php';
+// Memanggil model Todo
+require_once '../models/todoModel.php';
 
 // Validasi parameter id dan status
 if (!isset($_GET['id']) || !isset($_GET['status'])) {
     die("Parameter tidak lengkap");
 }
 
-// Menyimpan parameter ke variabel
+// Ambil data dari URL
 $id = $_GET['id'];
 $status = $_GET['status'];
 
-// Membuat object controller
-$controller = new TodoController($conn);
+// Membuat object Todo
+$todo = new Todo($conn);
 
 // Memanggil method updateStatus untuk mengubah status todo
-$controller->updateStatus($id, $status);
+$todo->updateStatus($id, $status);
 
-// Redirect kembali ke halaman utama
+// Kembali ke halaman utama
 header("Location: index.php");
 exit;
