@@ -52,4 +52,9 @@ class Todo {
         $query = "UPDATE todos SET status='$status' WHERE id=$id";
         return mysqli_query($this->conn, $query);
     }
+    // method delete
+     public function delete($id) {
+        $query = "DELETE FROM todos WHERE id = $id";
+        return mysqli_query($this->conn, $query);
+    }
 }
