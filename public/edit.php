@@ -1,14 +1,11 @@
 <?php
 require_once '../config/database.php';
-<<<<<<< HEAD
 require_once '../models/todoModel.php';
 
-=======
 // Memanggil model Todo
 require_once '../models/todoModel.php';
 
 // Validasi parameter ID
->>>>>>> 105c1e842d8443a03a891c287fff5fb527b38f32
 if (!isset($_GET['id'])) {
     die("ID tidak ditemukan");
 }
