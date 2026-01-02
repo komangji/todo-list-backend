@@ -9,8 +9,16 @@ require_once '../models/todoModel.php';
 if (!isset($_GET['id']) || !isset($_GET['status'])) {
     die("Parameter tidak lengkap");
 }
-$todo = new Todo($conn);
-$todo->updateStatus($_GET['id'], $_GET['status']);
 
+$id = $_GET['id'];
+$status = $_GET['status'];
+
+// Panggil model
+$todo = new Todo($conn);
+
+// Update status todo
+$todo->updateStatus($id, $status);
+
+// Kembali ke halaman index
 header("Location: index.php");
 exit;
