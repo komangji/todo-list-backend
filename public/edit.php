@@ -22,22 +22,13 @@ if (!$data) {
     die("Data todo tidak ditemukan");
 }
 
-// Proses update ketika form disubmit
+// Proses update
 if (isset($_POST['submit'])) {
-
-    $updateData = [
-        'title' => $_POST['title'],
-        'description' => $_POST['description'],
-        'status' => $_POST['status']
-    ];
-
-    // Memanggil method update melalui object
-    $todo->update($id, $updateData);
-
-    // Redirect ke halaman utama
+    $todo->update($id, $_POST);
     header("Location: index.php");
     exit;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -59,8 +50,12 @@ if (isset($_POST['submit'])) {
 
     <label>Status</label><br>
     <select name="status">
-        <option value="pending" <?= $data['status'] == 'pending' ? 'selected' : '' ?>>Pending</option>
-        <option value="done" <?= $data['status'] == 'done' ? 'selected' : '' ?>>Selesai</option>
+        <option value="Pending" <?= $data['status'] == 'Pending' ? 'selected' : ''; ?>>
+            Pending
+        </option>
+        <option value="Done" <?= $data['status'] == 'Done' ? 'selected' : ''; ?>>
+            Done
+        </option>
     </select><br><br>
 
     <button type="submit" name="submit">Simpan Perubahan</button>
