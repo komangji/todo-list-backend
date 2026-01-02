@@ -1,33 +1,31 @@
 <?php
-// Class Todo berfungsi sebagai MODEL untuk mengelola data todo di database
+// Model Todo untuk mengelola data todo di database
 class Todo {
 
-    // Properti untuk menyimpan koneksi database
+    // Properti koneksi database
     private $conn;
 
-    // Constructor untuk menerima koneksi database
+    // Constructor
     public function __construct($db) {
         $this->conn = $db;
     }
 
-    // Method untuk mengambil seluruh data todo
+    // Mengambil semua data todo
     public function getAll() {
         $query = "SELECT * FROM todos ORDER BY created_at DESC";
         return mysqli_query($this->conn, $query);
     }
 
-    // Method untuk mengambil satu data todo berdasarkan ID
+    // Mengambil satu todo berdasarkan ID
     public function getById($id) {
         $query = "SELECT * FROM todos WHERE id = $id";
         return mysqli_query($this->conn, $query);
     }
 
-    // Method untuk menyimpan data todo baru
+    // Menyimpan todo baru
     public function insert($data) {
         $title = $data['title'];
         $description = $data['description'];
-
-        // Status default saat todo dibuat
         $status = 'pending';
 
         $query = "INSERT INTO todos (title, description, status)
@@ -36,7 +34,7 @@ class Todo {
         return mysqli_query($this->conn, $query);
     }
 
-    // Method untuk memperbarui data todo (judul, deskripsi, status)
+    // Mengupdate todo (edit)
     public function update($id, $data) {
         $title = $data['title'];
         $description = $data['description'];
@@ -51,10 +49,15 @@ class Todo {
         return mysqli_query($this->conn, $query);
     }
 
-    // Method khusus untuk mengubah status todo
+    // Mengubah status via checklist
     public function updateStatus($id, $status) {
         $query = "UPDATE todos SET status='$status' WHERE id=$id";
         return mysqli_query($this->conn, $query);
     }
 
+    // Menghapus todo
+    public function delete($id) {
+        $query = "DELETE FROM todos WHERE id=$id";
+        return mysqli_query($this->conn, $query);
+    }
 }
