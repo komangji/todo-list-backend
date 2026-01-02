@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 
-<h2>Tambah Data Todo</h2>
+<h1>Tambah Data To-do</h1>
 
 <form method="POST">
     <label>Judul</label>
