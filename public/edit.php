@@ -1,4 +1,8 @@
 <?php
+
+// Memanggil koneksi database
+require_once '../config/database.php';
+
 // Memanggil model Todo
 include "../models/todoModel.php";
 
@@ -10,7 +14,11 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 // Ambil data todo berdasarkan ID
-$todo = Todo::getById($id);
+$todo = new Todo($conn);
+
+// Panggil method via object
+$result = $todo->getById($id);
+$data = mysqli_fetch_assoc($result);
 
 // Jika data tidak ditemukan
 if (!$todo) {
@@ -32,7 +40,6 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-// Tampilan form edit
 <!DOCTYPE html>
 <html lang="id">
 <head>
