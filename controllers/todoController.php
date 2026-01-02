@@ -6,7 +6,7 @@ class TodoController {
 
     //membuat object model
     public function __construct($db){
-        $this->model = new TodoModel($db);
+        $this->model = new Todo($db);
     }
 
     //menampilkan semua data todo
@@ -28,7 +28,7 @@ class TodoController {
     public function update($id, $data){
         return $this->model->update($id, $data);
     }
-    
+
     //menghapus data todo
     public function destroy($id)
     {
