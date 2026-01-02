@@ -2,7 +2,6 @@
 
 // Memanggil koneksi database
 require_once '../config/database.php';
-
 // Memanggil model Todo
 include "../models/todoModel.php";
 
