@@ -36,8 +36,9 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <title>Edit Todo</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
 <h2>Edit To-do Lists</h2>
