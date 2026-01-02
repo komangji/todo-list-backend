@@ -1,0 +1,124 @@
+/* RESET DASAR */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* WRAPPER */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* JUDUL */
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+/* LINK & BUTTON */
+a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary { background: #3498db; }
+.btn-warning { background: #f39c12; }
+.btn-danger  { background: #e74c3c; }
+.btn-success { background: #2ecc71; }
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th {
+  background: #3498db;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+  background: #f1f1f1;
+}
+
+/* FORM */
+form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+form button {
+  margin-top: 15px;
+}
+
+/* STATUS BADGE */
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: white;
+}
+
+.status.pending {
+  background: #f39c12;
+}
+
+.status.done {
+  background: #2ecc71;
+}
+
+/* ACTION LINK */
+.action a {
+  margin-right: 6px;
+  font-weight: bold;
+}
