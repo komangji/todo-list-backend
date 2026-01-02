@@ -20,10 +20,15 @@ $result = $todo->getAll();
 <body>
 
 <!-- Judul halaman -->
-<h2>Daftar Todo</h2>
+<h1>Daftar To-Do</h1>
+
+<!-- Tombol untuk menuju halaman tambah todo -->
+<p>
+    <a href="create.php">Tambah Todo</a>
+</p>
 
 <!-- Tabel untuk menampilkan data todo -->
-<table border="1" cellpadding="8">
+<table border="1" cellpadding="15">
 
     <!-- Header tabel -->
     <tr>

@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 
-<h2>Edit Todo</h2>
+<h2>Edit To-do Lists</h2>
 
 <form method="POST">
     <label>Judul</label><br>
@@ -67,6 +67,6 @@ if (isset($_POST['submit'])) {
 
     <button type="submit" name="submit">Simpan Perubahan</button>
 </form>
-
+    <a href="index.php">Kembali</a>
 </body>
 </html>
