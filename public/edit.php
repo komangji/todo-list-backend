@@ -31,6 +31,7 @@ if (isset($_POST['submit'])) {
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -38,30 +39,46 @@ if (isset($_POST['submit'])) {
     <title>Edit Todo</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<h2>Edit To-do Lists</h2>
+<div class="container">
 
-<form method="POST">
-    <label>Judul</label><br>
-    <input type="text" name="title" value="<?= $data['title']; ?>" required><br><br>
+    <h2>Edit To-Do</h2>
 
-    <label>Deskripsi</label><br>
-    <textarea name="description" required><?= $data['description']; ?></textarea><br><br>
+    <form method="POST" class="form-card">
 
-    <label>Status</label><br>
-    <select name="status">
-        <option value="Pending" <?= $data['status'] == 'Pending' ? 'selected' : ''; ?>>
-            Pending
-        </option>
-        <option value="Done" <?= $data['status'] == 'Done' ? 'selected' : ''; ?>>
-            Done
-        </option>
-    </select><br><br>
+        <div class="form-group">
+            <label>Judul</label>
+            <input type="text" name="title" value="<?= $data['title']; ?>" required>
+        </div>
 
-    <button type="submit" name="submit">Simpan Perubahan</button>
-</form>
-    <a href="index.php">Kembali</a>
+        <div class="form-group">
+            <label>Deskripsi</label>
+            <textarea name="description" required><?= $data['description']; ?></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <select name="status">
+                <option value="Pending" <?= $data['status'] == 'Pending' ? 'selected' : ''; ?>>
+                    Pending
+                </option>
+                <option value="Done" <?= $data['status'] == 'Done' ? 'selected' : ''; ?>>
+                    Done
+                </option>
+            </select>
+        </div>
+
+        <div class="form-action">
+            <button type="submit" name="submit" class="btn-primary">
+                Simpan Perubahan
+            </button>
+            <a href="index.php" class="btn-secondary">Kembali</a>
+        </div>
+
+    </form>
+
+</div>
+
 </body>
 </html>

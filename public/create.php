@@ -1,4 +1,5 @@
 <?php
+
 // Memanggil koneksi database
 require_once '../config/database.php';
 
@@ -10,12 +11,11 @@ $todo = new Todo($conn);
 
 // Proses simpan data todo baru
 if (isset($_POST['submit'])) {
-    $todo->insert($_POST);   // ← FIX DI SINI
+    $todo->insert($_POST);
     header("Location: index.php");
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -25,19 +25,33 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 
-<h2>Tambah Data To-Do</h2>
+<div class="container">
 
-<form method="POST">
-    <label>Judul</label>
-    <input type="text" name="title" required>
+    <div class="header">
+        <h2>Tambah Data To-Do</h2>
+    </div>
 
-    <label>Deskripsi</label>
-    <textarea name="description" required></textarea>
+    <form method="POST">
 
-    <button type="submit" name="submit">Simpan</button>
-</form>
+        <div class="form-group">
+            <label>Judul</label>
+            <input type="text" name="title" required>
+        </div>
 
-<a href="index.php">Kembali</a>
+        <div class="form-group">
+            <label>Deskripsi</label>
+            <textarea name="description" required></textarea>
+        </div>
+
+        <button type="submit" name="submit" class="btn btn-primary">
+            Simpan
+        </button>
+
+    </form>
+
+    <a href="index.php" class="back-link">← Kembali</a>
+
+</div>
 
 </body>
 </html>

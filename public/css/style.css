@@ -1,124 +1,237 @@
-/* RESET DASAR */
+/* RESET */
 * {
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
   margin: 0;
   padding: 0;
-  background-color: #f4f6f8;
-  color: #333;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* WRAPPER */
+/* BODY */
+body {
+  background: #f1f5f9;
+  min-height: 100vh;
+  padding: 40px 0;
+  color: #1e293b;
+}
+
+/* WRAPPER UTAMA */
 .container {
   width: 90%;
   max-width: 1000px;
-  margin: 40px auto;
+  margin: auto;
   background: #ffffff;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* JUDUL */
-h1, h2 {
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 20px;
+  gap: 10px;
+}
+
+.header h1,
+.header h2 {
+  text-align: center;
+  font-size: 28px;
 }
 
 /* LINK & BUTTON */
 a {
   text-decoration: none;
-  color: #3498db;
+  font-weight: 600;
 }
 
 .btn {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 5px;
-  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
   font-size: 14px;
-  border: none;
   cursor: pointer;
 }
 
-.btn-primary { background: #3498db; }
-.btn-warning { background: #f39c12; }
-.btn-danger  { background: #e74c3c; }
-.btn-success { background: #2ecc71; }
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
 
-.btn:hover {
-  opacity: 0.85;
+.btn-primary:hover {
+  background: #1e40af;
+}
+
+.btn-danger {
+  color: #dc2626;
+}
+
+.btn-danger:hover {
+  text-decoration: underline;
+}
+
+.btn-success {
+  color: #16a34a;
 }
 
 /* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-}
-
-table th {
-  background: #3498db;
-  color: white;
-  padding: 10px;
-  text-align: left;
-}
-
-table td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-table tr:hover {
-  background: #f1f1f1;
-}
-
-/* FORM */
-form label {
-  display: block;
-  margin-top: 12px;
-  font-weight: bold;
-}
-
-form input,
-form textarea,
-form select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 6px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-form textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-form button {
   margin-top: 15px;
 }
 
-/* STATUS BADGE */
-.status {
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 12px;
+thead {
+  background: #2563eb;
   color: white;
 }
 
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* CHECKBOX */
+input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+/* STATUS */
+.status {
+  font-weight: bold;
+}
+
 .status.pending {
-  background: #f39c12;
+  color: #ca8a04;
 }
 
 .status.done {
-  background: #2ecc71;
+  color: #16a34a;
 }
 
-/* ACTION LINK */
-.action a {
-  margin-right: 6px;
-  font-weight: bold;
+/* FORM */
+form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5f5;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* FOOTER LINK */
+.back-link {
+  margin-top: 15px;
+  display: inline-block;
+}
+
+
+/* =========================
+   EDIT PAGE STYLE
+========================= */
+
+/* Judul edit */
+.container h2 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+/* Card khusus edit */
+.form-card {
+  margin-top: 20px;
+}
+
+/* Input focus effect */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #4f93d2;
+  box-shadow: 0 0 0 2px rgba(79, 147, 210, 0.2);
+}
+
+/* Select status lebih rapi */
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5f5;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Tombol action edit */
+.form-action {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 20px; 
+  gap: 10px;
+}
+
+/* Hover efek tombol simpan */
+.btn-primary {
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+/* Hover tombol kembali */
+.btn-secondary { 
+  padding: 8px 16px; 
+  border-radius: 6px; 
+  font-size: 14px; 
+  background: #e2e8f0; 
+  color: #1e293b; 
+  text-decoration: none; 
+} 
+
+.btn-secondary:hover { 
+  background: #cbd5e1; }
+
+/* Responsive edit page */
+@media (max-width: 600px) {
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-action {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
 }

@@ -20,59 +20,63 @@ $result = $todo->getAll();
 </head>
 <body>
 
-<!-- Judul halaman -->
-<h1>Daftar To-Do</h1>
+<div class="container">
+            <!-- Judul halaman -->
+    <div class="header">
+        <h1>Daftar To-Do</h1>
 
-<!-- Tombol untuk menuju halaman tambah todo -->
-<p>
-    <a href="create.php">Tambah Todo</a>
-</p>
+        <!-- Tombol untuk menuju halaman tambah todo -->
+        <a href="create.php" class="btn btn-primary">+ Tambah Todo</a>
+    </div>
 
-<!-- Tabel untuk menampilkan data todo -->
-<table border="1" cellpadding="15">
+    <table>
+        <thead>
 
-    <!-- Header tabel -->
-    <tr>
-        <th>Selesai</th>
-        <th>Judul</th>
-        <th>Deskripsi</th>
-        <th>Status</th>
-        <th>Aksi</th>
-    </tr>
+                <!-- Header tabel -->
+            <tr>
+                <th>Selesai</th>
+                <th>Judul</th>
+                <th>Deskripsi</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        
+    <!--Melakukan perulangan untuk menampilkan setiap data todo-->
+        <tbody>
+        <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+            <tr>
 
-    <?php 
-    // Melakukan perulangan untuk menampilkan setiap data todo
-    while ($row = mysqli_fetch_assoc($result)) : 
-    ?>
-    <tr>
+                <!-- Kolom checklist untuk mengubah status todo -->
+                <td align="center">
+                    <input type="checkbox"
+                        onchange="window.location='updateStatus.php?id=<?= $row['id']; ?>&status=<?= $row['status'] == 'done' ? 'pending' : 'done'; ?>'"
+                        <?= $row['status'] == 'done' ? 'checked' : ''; ?>>
+                </td>
 
-        <!-- Kolom checklist untuk mengubah status todo -->
-        <td align="center">
-        <input type="checkbox"
-            onchange="window.location='updateStatus.php?id=<?= $row['id']; ?>&status=<?= $row['status'] == 'done' ? 'pending' : 'done'; ?>'"
-            <?= $row['status'] == 'done' ? 'checked' : ''; ?>>
+                <!-- Menampilkan judul todo -->
+                <td><?= $row['title']; ?></td>
+                <!-- Menampilkan deskripsi todo -->
+                <td><?= $row['description']; ?></td>
+                 <!-- Menampilkan status todo -->
+                <td class="status <?= $row['status']; ?>">
+                    <?= $row['status']; ?>
+                </td>
 
-        </td>
 
-        <!-- Menampilkan judul todo -->
-        <td><?= $row['title']; ?></td>
+                <!-- Tombol aksi edit dan hapus -->
+                <td>
+                    <a href="edit.php?id=<?= $row['id']; ?>" class="btn-success">Edit</a> |
+                    <a href="delete.php?id=<?= $row['id']; ?>" 
+                       class="btn-danger"
+                       onclick="return confirm('Yakin hapus?')">Delete</a>
+                </td>
+            </tr>
+        <?php endwhile; ?>
+        </tbody>
+    </table>
 
-        <!-- Menampilkan deskripsi todo -->
-        <td><?= $row['description']; ?></td>
-
-        <!-- Menampilkan status todo -->
-        <td><?= $row['status']; ?></td>
-
-        <!-- Tombol aksi edit dan hapus -->
-        <td>
-            <a href="edit.php?id=<?= $row['id']; ?>">Edit</a> |
-            <a href="delete.php?id=<?= $row['id']; ?>"onclick="return confirm('Yakin hapus?')">Delete</a>
-        </td>
-
-    </tr>
-    <?php endwhile; ?>
-
-</table>
+</div>
 
 </body>
 </html>
