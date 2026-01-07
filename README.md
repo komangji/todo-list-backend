@@ -128,26 +128,47 @@ File terkait:
 - todoModel.php → method delete()
 
 ## Struktur folder
-odo-list-backend/
+todo-list-backend/
 │
 ├── config/
-│   └── database.php        # Konfigurasi koneksi database
+│   └── database.php
+│       # File konfigurasi koneksi ke database MySQL
+|   └── todos.sql
 │
 ├── models/
-│   └── todoModel.php       # Model untuk query database
+│   └── todoModel.php
+│       # Model Todo
+│       # Berisi query database (CRUD, update status, due date, dll)
 │
 ├── public/
-    ├── css/
-│        └── style.css           # Styling aplikasi
-│   ├── index.php           # Halaman utama (list todo)
-│   ├── create.php          # Tambah todo
-│   ├── edit.php            # Edit todo
-│   ├── delete.php          # Hapus todo
-│   └── updateStatus.php    # Update status via checklist
+│   ├── css/
+│   │   └── style.css
+│   │       # File CSS utama untuk styling tampilan aplikasi
+│   │
+│   ├── index.php
+│   │   # Halaman utama
+│   │   # Menampilkan daftar todo, status, due date, dan aksi
+│   │
+│   ├── create.php
+│   │   # Halaman tambah todo baru
+│   │   # Input judul, deskripsi, dan tanggal jatuh tempo
+│   │
+│   ├── edit.php
+│   │   # Halaman edit todo
+│   │   # Mengubah judul, deskripsi, status, dan due date
+│   │
+│   ├── delete.php
+│   │   # Proses penghapusan todo berdasarkan ID
+│   │
+│   └── updateStatus.php
+│       # Mengubah status todo (pending ↔ done)
+│       # Digunakan oleh checkbox checklist
 │
 │
-├── database.sql            # Struktur database
-└── README.md               # Dokumentasi project
+└── README.md
+    # Dokumentasi project
+    # Berisi deskripsi, fitur, struktur folder, dan cara menjalankan aplikasi
+
 
 
 ## Cara Instalasi & Menjalankan Aplikasi
