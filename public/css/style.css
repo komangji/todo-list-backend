@@ -8,7 +8,7 @@
 
 /* BODY */
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #8BAE66 0%, #8BAE66 100%);
   min-height: 100vh;
   padding: 40px 0;
   color: #1e293b;
@@ -71,12 +71,12 @@ a {
 }
 
 .btn-primary {
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(45deg, #89986D 0%, #89986D 100%);
   color: white;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(45deg, #5a67d8 0%, #6b46c1 100%);
+  background: linear-gradient(45deg, #89986D 0%, #89986D 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
@@ -109,7 +109,7 @@ table {
 }
 
 thead {
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(45deg, #9CAB84 0%, #9CAB84 100%);
   color: white;
 }
 
