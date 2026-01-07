@@ -30,7 +30,9 @@ class Todo {
         $status = 'pending';
 
         $query = "INSERT INTO todos (title, description, due_date, status)
-                  VALUES ('$title', '$description', '$due_date', '$status')";
+                    VALUES ('$title', '$description', " .
+                    ($due_date ? "'$due_date'" : "NULL") . ",
+                    'pending')";
 
         return mysqli_query($this->conn, $query);
     }

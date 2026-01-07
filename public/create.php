@@ -11,6 +11,9 @@ $todo = new Todo($conn);
 
 // Proses simpan data todo baru
 if (isset($_POST['submit'])) {
+    if (empty($_POST['due_date'])) {
+        $_POST['due_date'] = null;
+    }
     $todo->insert($_POST);
     header("Location: index.php");
     exit;
