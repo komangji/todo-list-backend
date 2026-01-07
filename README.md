@@ -128,26 +128,25 @@ File terkait:
 - todoModel.php → method delete()
 
 ## Struktur folder
-odo-list-backend/
-│
-├── config/
-│   └── database.php        # Konfigurasi koneksi database
-│
-├── models/
-│   └── todoModel.php       # Model untuk query database
-│
-├── public/
-    ├── css/
-│        └── style.css           # Styling aplikasi
-│   ├── index.php           # Halaman utama (list todo)
-│   ├── create.php          # Tambah todo
-│   ├── edit.php            # Edit todo
-│   ├── delete.php          # Hapus todo
-│   └── updateStatus.php    # Update status via checklist
-│
-│
-├── database.sql            # Struktur database
-└── README.md               # Dokumentasi project
+- 📁 *todo-list-backend/*
+  - 📁 config/
+    - 📄 database.php
+   - 📁 controllers
+    - 📄 todoController.php
+   - 📁 database/
+    - 📄 todo.php
+    - 📄 todos.sql
+  - 📁 models/
+    - 📄 todoModel.php
+- 📁 public/
+   📁 css/
+   - 📄 style.css
+  - 📄 index.php
+  - 📄 create.php
+  - 📄 edit.php
+  - 📄 delete.php
+  - 📄 updateStatus.php
+- 📄 README.md 
 
 
 ## Cara Instalasi & Menjalankan Aplikasi
