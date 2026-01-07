@@ -32,7 +32,6 @@ if (isset($_POST['submit'])) {
     </div>
 
     <form method="POST">
-
         <div class="form-group">
             <label>Judul</label>
             <input type="text" name="title" required>
@@ -43,13 +42,18 @@ if (isset($_POST['submit'])) {
             <textarea name="description" required></textarea>
         </div>
 
+        <div class="form-group">
+            <label>Tanggal Jatuh Tempo</label>
+            <input type="date" name="due_date">
+        </div>
+
         <button type="submit" name="submit" class="btn btn-primary">
             Simpan
         </button>
 
     </form>
 
-    <a href="index.php" class="back-link">← Kembali</a>
+    <a href="index.php" class="back-link">Kembali</a>
 
 </div>
 

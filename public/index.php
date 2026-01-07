@@ -26,7 +26,7 @@ $result = $todo->getAll();
         <h1>Daftar To-Do</h1>
 
         <!-- Tombol untuk menuju halaman tambah todo -->
-        <a href="create.php" class="btn btn-primary">+ Tambah Todo</a>
+        <a href="create.php" class="btn btn-primary">Tambah Todo</a>
     </div>
 
     <table>
@@ -36,6 +36,7 @@ $result = $todo->getAll();
             <tr>
                 <th>Selesai</th>
                 <th>Judul</th>
+                <th>Jatuh Tempo</th>
                 <th>Deskripsi</th>
                 <th>Status</th>
                 <th>Aksi</th>
@@ -45,6 +46,16 @@ $result = $todo->getAll();
     <!--Melakukan perulangan untuk menampilkan setiap data todo-->
         <tbody>
         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+        
+        <?php
+            // Mengecek apakah todo terlambat
+            $today = date('Y-m-d');
+            $isLate = (
+                $row['due_date'] &&
+                $row['due_date'] < $today &&
+                $row['status'] != 'done'
+            );
+        ?>
             <tr>
 
                 <!-- Kolom checklist untuk mengubah status todo -->
@@ -55,14 +66,28 @@ $result = $todo->getAll();
                 </td>
 
                 <!-- Menampilkan judul todo -->
-                <td><?= $row['title']; ?></td>
-                <!-- Menampilkan deskripsi todo -->
-                <td><?= $row['description']; ?></td>
-                 <!-- Menampilkan status todo -->
-                <td class="status <?= $row['status']; ?>">
-                    <?= $row['status']; ?>
+                <td>
+                    <?= $row['title']; ?>
                 </td>
 
+                <!-- Menampilkan Jatuh Tempo -->
+                <td style="color: <?= $isLate ? 'red' : 'black'; ?>">
+                    <?= $row['due_date']
+                        ? date('d-m-Y', strtotime($row['due_date']))
+                        : '-'; ?>
+                </td>
+
+
+                <!-- Menampilkan deskripsi todo -->
+                <td>
+                    <?= $row['description']; ?>
+                </td>
+
+                 <!-- Menampilkan status todo -->
+                <td class="status 
+                    <?= $row['status']; ?>">
+                    <?= $row['status']; ?>
+                </td>
 
                 <!-- Tombol aksi edit dan hapus -->
                 <td>

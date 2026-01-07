@@ -26,10 +26,12 @@ class Todo {
     public function insert($data) {
         $title = $data['title'];
         $description = $data['description'];
+        $due_date = $data['due_date']; // tanggal jatuh tempo
         $status = 'pending';
 
-        $query = "INSERT INTO todos (title, description, status)
-                  VALUES ('$title', '$description', '$status')";
+        $query = "INSERT INTO todos (title, description, due_date, status)
+                  VALUES ('$title', '$description', '$due_date', '$status')";
+
         return mysqli_query($this->conn, $query);
     }
 
@@ -37,22 +39,25 @@ class Todo {
     public function update($id, $data) {
         $title = $data['title'];
         $description = $data['description'];
+        $due_date = $data['due_date'];
         $status = $data['status'];
 
         $query = "UPDATE todos
                   SET title='$title',
                       description='$description',
+                      due_date='$due_date',
                       status='$status'
                   WHERE id=$id";
+
         return mysqli_query($this->conn, $query);
     }
 
-    // Method checklist
-    public function updateStatus($id, $status) {
+    // Method Checklist
+     public function updateStatus($id, $status) {
         $query = "UPDATE todos SET status='$status' WHERE id=$id";
         return mysqli_query($this->conn, $query);
     }
-    // method delete
+    // Method Delete
      public function delete($id) {
         $query = "DELETE FROM todos WHERE id = $id";
         return mysqli_query($this->conn, $query);

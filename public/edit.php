@@ -58,6 +58,11 @@ if (isset($_POST['submit'])) {
         </div>
 
         <div class="form-group">
+            <label>Tanggal Jatuh Tempo</label><br>
+            <input type="date" name="due_date" value="<?= $data['due_date']; ?>"><br><br>
+        </div>
+
+        <div class="form-group">
             <label>Status</label>
             <select name="status">
                 <option value="Pending" <?= $data['status'] == 'Pending' ? 'selected' : ''; ?>>
