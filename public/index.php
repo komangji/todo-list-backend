@@ -35,8 +35,8 @@ $result = $todo->getAll();
                 <!-- Header tabel -->
             <tr>
                 <th>Selesai</th>
-                <th>Judul</th>
                 <th>Jatuh Tempo</th>
+                <th>Judul</th>
                 <th>Deskripsi</th>
                 <th>Status</th>
                 <th>Aksi</th>
@@ -65,18 +65,18 @@ $result = $todo->getAll();
                         <?= $row['status'] == 'done' ? 'checked' : ''; ?>>
                 </td>
 
+                <!-- Menampilkan Jatuh Tempo -->
+                <td class="<?= $isLate ? 'late-date' : ''; ?>">
+                    <?= $row['due_date']
+                        ? date('d-m-Y', strtotime($row['due_date']))
+                        : '-'; ?>
+
+                </td>
+
                 <!-- Menampilkan judul todo -->
                 <td>
                     <?= $row['title']; ?>
                 </td>
-
-                <!-- Menampilkan Jatuh Tempo -->
-                <td style="color: <?= $isLate ? 'red' : 'black'; ?>">
-                    <?= $row['due_date']
-                        ? date('d-m-Y', strtotime($row['due_date']))
-                        : '-'; ?>
-                </td>
-
 
                 <!-- Menampilkan deskripsi todo -->
                 <td>

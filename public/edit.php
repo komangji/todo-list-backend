@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
         </div>
 
         <div class="form-action">
-            <button type="submit" name="submit" class="btn-primary">
+            <button type="submit" name="submit" class="btn btn-primary">
                 Simpan Perubahan
             </button>
             <a href="index.php" class="btn-secondary">Kembali</a>
