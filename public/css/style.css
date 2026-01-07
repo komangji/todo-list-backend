@@ -128,8 +128,7 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:hover {
-  background: linear-gradient(90deg, #e6fffa 0%, #b2f5ea 100%);
-  transform: scale(1.01);
+  background: linear-gradient(#f5f5f5);
   transition: all 0.3s ease;
 }
 
@@ -143,8 +142,8 @@ input[type="checkbox"] {
 /* STATUS */
 .status {
   font-weight: bold;
-  padding: 6px 12px;
-  border-radius: 20px;
+  padding: 6px 6px;
+  border-radius: 16px;
   text-align: center;
   font-size: 14px;
   text-transform: uppercase;
